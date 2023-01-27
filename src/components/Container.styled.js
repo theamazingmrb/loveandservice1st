@@ -13,6 +13,7 @@ export const Section = styled.div `
     max-width: 100%;
     position: relative; 
     margin: 0 auto;
+    min-width: 550px;
 `
 export const H1 = styled.h1 `
     color: #000000; 
