@@ -1,9 +1,9 @@
 import React from "react";
-import { Header, Section, H1, Paragraph, StyledButton, Button, BigImgContainer, SectionP} from "./Container.styled";
+import { Header, Section, H1, Paragraph, StyledButton, BigImgContainer, SectionP, Footer, Links, ImgDiv, ContactDiv} from "./Container.styled";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{width: "100%"}}>
       <Header><img src={require('../assets/noBgBlack.png')} width={200} height={155.81}  alt="Love and Service 1rst Logo" /></Header>
       <Section>
           <div>  
@@ -31,13 +31,30 @@ const Home = () => {
           </div>
         </div>
       </SectionP>
-      <footer>
-        {/* <img src="" alt="" srcset="" /> */}
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        <a href="#">Linkedin</a>
-      </footer>
+      <Footer>
+      
+        <ImgDiv>
+          <img src={require('../assets/noBgBlack.png')} width={200} height={155.81} alt="Love and Service 1rst Logo" />
+        </ImgDiv>
+      <div style={{display: "flex"}}>
+        
+        <Links>  
+          <a href="#" style={{ margin: "0px 0px 5px 0px", color: "#000000", fontWeight: "bold", textDecoration: "none"}}>Facebook</a>
+          <a href="#" style={{ margin: "5px 0px", color: "#000000", fontWeight: "bold", textDecoration: "none"}}>Twitter</a>
+          <a href="#" style={{ margin: "5px 0px", color: "#000000", fontWeight: "bold", textDecoration: "none"}}>Instagram</a>
+          <a href="#" style={{ margin: "5px 0px", color: "#000000", fontWeight: "bold", textDecoration: "none"}}>Linkedin</a>
+        </Links>
+        <ContactDiv>
+            <p style={{ margin: "0px"}}>416 887 5555</p>
+            <p style={{ margin: "5px 0px"}}>123 address st.</p>
+            <p style={{ margin: "5px 0px"}}>email@example.com</p>
+            <p style={{ margin: "5px 0px"}}>yourwebsite.com</p>
+            <p style={{ margin: "24px 0px 0px 0px"}}>Made with </p>           
+        </ContactDiv>
+
+        </div>
+        <div></div>
+      </Footer>
     </div>
   );
 };

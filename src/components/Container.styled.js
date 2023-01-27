@@ -17,7 +17,7 @@ export const Section = styled.div `
 export const H1 = styled.h1 `
     color: #000000; 
     font-size: 70px;
-    font-family: Alice;
+    font-family: "Alice";
     font-weight: 700;
     text-align: center;
     padding: 0;
@@ -25,7 +25,7 @@ export const H1 = styled.h1 `
 `
 export const Paragraph = styled.div `
     font-size: 22px;
-    font-family: Alice;
+    font-family: "Alice";
     max-width: 570px;
     margin-top: 1.5rem;
     margin-left: auto;
@@ -67,13 +67,54 @@ export const BigImgContainer = styled.div `
     padding: 30px 15px;
     width: 100%;
     min-width: 720px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 `
 export const SectionP = styled.div `
     padding: 105px 15px;
     background: #FFD8D8;
     font-size: 40px;
-    font: alice;
+    font-family: "Alice";
     min-width: 720px;
     text-align: center;
+`
 
+export const Footer = styled.div `
+    padding: 65px 0px;
+    width: 100%;
+    background: #FFD8D8;
+    font-size: 16px;
+    font-family: "Helvetica";
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+`
+export const ImgDiv = styled.div `
+    padding: 0px 15px;
+    padding-left: 10%;
+
+`
+
+export const Links = styled.div `
+    margin: 0px 0px 7px;
+    font-size: 16px;
+    font-family: Helvetica;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px;
+    width: 10rem;
+    align-items: start;
+    text-style: none;
+`
+
+
+export const ContactDiv= styled.div `
+    padding: 0px;
+    margin: 0px;
+    align-items: start;
+    text-align: start;
 `
