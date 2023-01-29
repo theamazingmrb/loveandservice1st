@@ -67,7 +67,7 @@ export const Button = styled.span`
 `;
 export const BigImgContainer = styled.div`
   padding: 30px 15px;
-  width: 100%;
+  width: 90%;
   // min-width: 720px;
   max-width: 1200px;
   margin-left: auto;
@@ -78,8 +78,19 @@ export const SectionP = styled.div`
   background: #ffd8d8;
   font-size: 40px;
   font-family: "Alice";
-  // min-width: 720px;
   text-align: center;
+  // margin: 0rem 10rem;
+  @media (max-width: 500px) {
+    margin: 0;
+    font-size: 25px;
+  }
+`;
+
+export const SectionPSubDiv = styled.div`
+  margin: 0rem 10rem;
+  @media (max-width: 500px) {
+    margin: 0;
+  }
 `;
 
 export const Footer = styled.div`
@@ -97,12 +108,22 @@ export const ImgDiv = styled.div`
   padding: 0px 15px;
   padding-left: 10%;
 
-  @media (max-width: 400px) {
-    
+  @media (max-width: 728px) {
     img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
+      height: 100%;
+      width: 100px;
+      object-fit: contain;
+    }
+  }
+
+
+
+  @media (max-width: 590px) {
+    display: none;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
     }
   }
 `;
@@ -135,4 +156,36 @@ export const StyledDonate = styled.a`
 
 export const StyledContainer = styled.div`
   width: 100vw;
+`;
+
+export const StyledInput = styled.input``;
+
+export const ErrorText = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.125 rem;
+  color: red;
+  line-height: normal;
+  white-space: normal;
+  padding: 10px 7px;
+  max-width: 98%;
+`;
+
+export const PEmailText = styled.p`
+  font-size: 16px;
+  background: #ffd8d8;
+  margin: 0;
+  @media (max-width: 500px) {
+    font-size: 13px;
+  }
+`;
+
+export const HendersonText = styled.p`
+  font-size: 16px;
+  background: #ffd8d8;
+  padding: 0 20px 20px 20px;
+  margin: 0;
+  @media (max-width: 500px) {
+    font-size: 13px;
+  }
 `;
