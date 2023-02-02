@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Header,
   Section,
@@ -16,10 +16,10 @@ import {
   ErrorText,
   SectionPSubDiv,
   PEmailText,
-  HendersonText
+  HendersonText,
 } from "./Container.styled";
 import { db } from "../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -31,28 +31,28 @@ const Home = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (email != "" && email != null && amount != "" && amount != null) {
-      const docRef = await addDoc(collection(db, "donations"), {
-        name,
-        email,
-        amount,
-        comments,
-      });
+    // if (email != "" && email != null && amount != "" && amount != null) {
+    //   const docRef = await addDoc(collection(db, "donations"), {
+    //     name,
+    //     email,
+    //     amount,
+    //     comments,
+    //   });
 
       // console.log("Document written with ID: ", docRef.id);
 
-      if (docRef.id) {
+      // if (docRef.id) {
         window.location.href =
-          "https://www.paypal.com/donate/?hosted_button_id=6FBHEGJ7DVXVU";
-      }
-    } else {
-      setError("Please enter your email address and an amount");
-      setTimeout(() => {
-        setError(null);
+          "https://form.jotform.com/230269407863057";
+    //   }
+    // } else {
+    //   setError("Please enter your email address and an amount");
+    //   setTimeout(() => {
+    //     setError(null);
 
-        return clearInterval();
-      }, 5000);
-    }
+    //     return clearInterval();
+    //   }, 5000);
+    // }
     // Push the data to the Firebase database
     // db.collection("donations").add({
     //   name,
@@ -60,6 +60,14 @@ const Home = () => {
     //   amount,
     //   time: new Date(),
     // });
+  };
+
+  const getDonations = async () => {
+    const querySnapshot = await getDocs(collection(db, "donations"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      console.log(doc.data());
+    });
   };
 
   return (
@@ -81,7 +89,7 @@ const Home = () => {
             break the cycle of poverty.
           </Paragraph>
 
-          <Paragraph>
+          {/* <Paragraph>
             Please enter your email and donation amount before hitting donate.
           </Paragraph>
 
@@ -100,10 +108,15 @@ const Home = () => {
           <StyledInput
             placeholder="Note/Comments"
             onChange={(e) => setComments(e.target.value)}
-          />
-          {error && <ErrorText>{error}</ErrorText>}
+          /> */}
+          {/* {error && <ErrorText>{error}</ErrorText>} */}
           <StyledDonate onClick={handleSubmit} href="#">
-            {" "}
+            {/* {
+              <script
+                type="text/javascript"
+                src="https://form.jotform.com/jsform/230269407863057"
+              ></script>
+            } */}
             <StyledButton>DONATE </StyledButton>
           </StyledDonate>
         </div>
@@ -134,11 +147,10 @@ const Home = () => {
           />
         </ImgDiv>
 
-
         <div style={{ display: "flex" }}>
           <Links>
             <a
-              href="https://www.facebook.com/loveandservice1st/"
+              href="https://www.facebook.com/loveandservicefirst/"
               style={{
                 margin: "0px 0px 5px 0px",
                 color: "#000000",
@@ -148,7 +160,7 @@ const Home = () => {
             >
               Facebook
             </a>
-            <a
+            {/* <a
               href="https://www.twitter.com/loveandservice1st/"
               style={{
                 margin: "5px 0px",
@@ -158,7 +170,7 @@ const Home = () => {
               }}
             >
               Twitter
-            </a>
+            </a> */}
             <a
               href="https://www.instagram.com/loveandservice1st/"
               style={{
@@ -171,7 +183,7 @@ const Home = () => {
               Instagram
             </a>
             <a
-              href="https://www.Linkedin.com/loveandservice1st/"
+              href="https://www.linkedin.com/in/loveandservice1st"
               style={{
                 margin: "5px 0px",
                 color: "#000000",
@@ -180,6 +192,17 @@ const Home = () => {
               }}
             >
               Linkedin
+            </a>
+            <a
+              href="https://www.tiktok.com/@love_and_service_1st"
+              style={{
+                margin: "5px 0px",
+                color: "#000000",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              Tiktok
             </a>
           </Links>
           <ContactDiv>
@@ -192,10 +215,10 @@ const Home = () => {
         </div>
         <div></div>
       </Footer>
-      <HendersonText >
-          Pay it Forward is a component fund of the Henderson Comunity
-          Foundation, a recognized 501(c)3 corporation in the State of Nevada
-        </HendersonText>
+      <HendersonText>
+        Pay it Forward is a component fund of the Henderson Community
+        Foundation, a recognized 501(c)3 corporation in the State of Nevada
+      </HendersonText>
     </div>
   );
 };
