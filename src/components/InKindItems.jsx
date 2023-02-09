@@ -17,21 +17,18 @@ import {
   SectionPSubDiv,
   PEmailText,
   HendersonText,
-  StyledImage,
-  StyledDiv,
 } from "./Container.styled";
 import { db } from "../utils/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import ImageList from "./ImageList";
 
-const About = () => {
+const InKindItems = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [amount, setAmount] = useState("");
   const [comments, setComments] = useState("");
   const [error, setError] = useState();
 
-  const handleSubmit = async (event) => {
+  const handleInkindSubmit = async (event) => {
     event.preventDefault();
 
     // if (email != "" && email != null && amount != "" && amount != null) {
@@ -45,7 +42,7 @@ const About = () => {
     // console.log("Document written with ID: ", docRef.id);
 
     // if (docRef.id) {
-    window.location.href = "https://form.jotform.com/230269407863057";
+    window.location.href = " https://form.jotform.com/230325373171044";
     //   }
     // } else {
     //   setError("Please enter your email address and an amount");
@@ -63,7 +60,6 @@ const About = () => {
     //   time: new Date(),
     // });
   };
-
   const getDonations = async () => {
     const querySnapshot = await getDocs(collection(db, "donations"));
     querySnapshot.forEach((doc) => {
@@ -93,42 +89,40 @@ const About = () => {
       <Section>
         <div>
           <Paragraph>
-            Love and Service First is a "pay it forward" initiative started in
-            Las Vegas to help the homeless population get back on their feet. We
-            understand that homelessness is a complex issue and that it requires
-            a multi-faceted approach to truly make a difference. That's why we
-            offer a variety of services to those in need, including supplying
-            basic necessities such as food, clothing, and hygiene products, as
-            well as providing them with haircuts and grooming services to help
-            them look and feel their best as they search for jobs and housing.
-            We also connect those interested in counseling and support services
-            to help individuals address any underlying issues that may have
-            contributed to their homelessness. Love and Service First is not
-            just about providing practical assistance; we also offer a sense of
-            community and support to the homeless individuals we serve. The
-            organization is made up of volunteers who are passionate about
-            making a positive change in the lives of those who are struggling.
-            We not only provide resources, but also offer a listening ear and a
-            helping hand, showing the homeless population that they are valued
-            and cared for. In addition to these practical services, Love and
-            Service First understands that homelessness can be an isolating
-            experience, and strives to create a supportive and welcoming
-            environment where individuals can feel seen and valued. We believe
-            that by providing both practical resources and emotional support, we
-            can empower individuals to take the steps necessary to build safer,
-            happier lives for themselves. The ultimate goal of "Pay it Forward"
-            is to empower homeless individuals to take control of their lives
-            and build safer, happier futures for themselves. By providing tools
-            to succeed, the initiative aims to break the cycle of homelessness
-            and promote self-sufficiency. We work closely with local shelters
-            and organizations to ensure that their services are reaching those
-            who need it most. Through our efforts and with the help of community
-            donations and fundraising events, we hope to create a brighter
-            future for the homeless population in Las Vegas and pave the way for
-            a more truly compassionate and equitable society.
+            <Paragraph>Here is a list of our needs:</Paragraph>
+            <Paragraph>
+              Book Cases (logistics and implantation working on) minimum of 2
+              can use others in the future if more are donated.
+            </Paragraph>
+            <Paragraph>
+              Contact us if you have leads Books, gently used is okay, need to
+              be newer books and all genres.
+            </Paragraph>
+            <Paragraph>100 minimum Games, gently used, are okay.</Paragraph>
+            <Paragraph>
+              100 minimum Art Supplies (nothing that needs cutting) groups of 5
+              items. For example, a minimum of 5 art/sketch pads; 5 paint
+              brushes Easel 4 maximum
+            </Paragraph>
+            <Paragraph>
+              Traveling cart, to take books and games to those who can’t get out
+              of their beds and for those in isolation (Covid Rooms)
+            </Paragraph>
+            <Paragraph>
+              Medical equipment (to be determined) Any medical Items Walkers to
+              bandages For our knapsacks: Minimum of 200 each (any and all
+              extras are needed daily so the more the better!) Sack (backpack,
+              knapsack, etc.)
+            </Paragraph>
+            <Paragraph>
+              Body Wash (travel size) Shampoo (travel size) Conditioner (travel
+              size) Lotion (travel size) Toothbrush Toothpaste (travel size) Bar
+              Soap (travel size) Chap Stick Sunglasses Bath Towel Hand Towel
+              Cool Towel
+            </Paragraph>
           </Paragraph>
 
-          <StyledDonate onClick={handleSubmit} href="#">
+          <StyledDonate onClick={handleInkindSubmit} href="#">
             {/* {
               <script
                 type="text/javascript"
@@ -139,9 +133,6 @@ const About = () => {
           </StyledDonate>
         </div>
       </Section>
-
-      {/* <ImageList /> */}
-      
       <div>
         <Footer>
           <ImgDiv>
@@ -220,6 +211,7 @@ const About = () => {
               <p style={{ margin: "24px 0px 0px 0px" }}>Made with &#10084;</p>
             </ContactDiv>
           </div>
+          <div></div>
         </Footer>
         <HendersonText>
           Pay it Forward is a component fund of the Henderson Community
@@ -230,4 +222,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default InKindItems;

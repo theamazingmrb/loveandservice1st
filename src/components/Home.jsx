@@ -20,7 +20,7 @@ import {
 } from "./Container.styled";
 import { db } from "../utils/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-
+import { Link } from "react-router-dom";
 const Home = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,11 +39,42 @@ const Home = () => {
     //     comments,
     //   });
 
-      // console.log("Document written with ID: ", docRef.id);
+    // console.log("Document written with ID: ", docRef.id);
 
-      // if (docRef.id) {
-        window.location.href =
-          "https://form.jotform.com/230269407863057";
+    // if (docRef.id) {
+    window.location.href = "https://form.jotform.com/230269407863057";
+    //   }
+    // } else {
+    //   setError("Please enter your email address and an amount");
+    //   setTimeout(() => {
+    //     setError(null);
+
+    //     return clearInterval();
+    //   }, 5000);
+    // }
+    // Push the data to the Firebase database
+    // db.collection("donations").add({
+    //   name,
+    //   email,
+    //   amount,
+    //   time: new Date(),
+    // });
+  };
+  const handleInkindSubmit = async (event) => {
+    event.preventDefault();
+
+    // if (email != "" && email != null && amount != "" && amount != null) {
+    //   const docRef = await addDoc(collection(db, "donations"), {
+    //     name,
+    //     email,
+    //     amount,
+    //     comments,
+    //   });
+
+    // console.log("Document written with ID: ", docRef.id);
+
+    // if (docRef.id) {
+    window.location.href = " https://form.jotform.com/230325373171044";
     //   }
     // } else {
     //   setError("Please enter your email address and an amount");
@@ -118,6 +149,14 @@ const Home = () => {
               ></script>
             } */}
             <StyledButton>DONATE </StyledButton>
+          </StyledDonate>
+          <Paragraph>
+            This can be the items for the sacks, sack contents (see itemized
+            list below <Link to="/inkind">here</Link>), games, books, art
+            supplies, shoes (clogs and sneakers….all sizes), medical supplies.
+          </Paragraph>
+          <StyledDonate onClick={handleInkindSubmit} href="#">
+            <StyledButton>IN-KIND DONATION </StyledButton>
           </StyledDonate>
         </div>
       </Section>

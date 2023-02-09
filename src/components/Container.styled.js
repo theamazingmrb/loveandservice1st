@@ -116,8 +116,6 @@ export const ImgDiv = styled.div`
     }
   }
 
-
-
   @media (max-width: 590px) {
     display: none;
     img {
@@ -189,3 +187,12 @@ export const HendersonText = styled.p`
     font-size: 13px;
   }
 `;
+
+export const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const StyledImage = styled.img`
+border-radius: 100px
+`
